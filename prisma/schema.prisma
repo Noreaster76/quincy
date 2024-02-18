@@ -15,7 +15,7 @@ model Episode {
   title                 String
   description           String
   publishedAt           DateTime?
-  durationInSeconds     Int
+  durationInSeconds     Int?
   podcast_season_number Int?
   external_guid         String    @unique
   URL                   String?

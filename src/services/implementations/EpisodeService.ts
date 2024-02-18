@@ -17,6 +17,7 @@ export class EpisodeService implements IEpisodeService {
       // If it exists, return the existing episode
       return {
         ...existingEpisode,
+        durationInSeconds: existingEpisode.durationInSeconds ?? undefined,
         publishedAt: existingEpisode.publishedAt ?? undefined,
         podcast_season_number:
           existingEpisode.podcast_season_number ?? undefined,
@@ -29,6 +30,7 @@ export class EpisodeService implements IEpisodeService {
       });
       return {
         ...newEpisode,
+        durationInSeconds: episodeData.durationInSeconds ?? undefined,
         publishedAt: episodeData.publishedAt ?? undefined,
         podcast_season_number: newEpisode.podcast_season_number ?? undefined,
         URL: newEpisode.URL ?? undefined,

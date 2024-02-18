@@ -7,7 +7,7 @@ export type NewEpisodeData = {
   title: string;
   description: string;
   publishedAt?: Date;
-  durationInSeconds: number;
+  durationInSeconds?: number;
   podcast_season_number?: number;
   external_guid: string;
   URL?: string;
@@ -18,7 +18,7 @@ export type Episode = {
   title: string;
   description: string;
   publishedAt?: Date;
-  durationInSeconds: number;
+  durationInSeconds?: number;
   podcast_season_number?: number;
   external_guid: string;
   URL?: string;
