@@ -17,7 +17,7 @@ export class RssToEpisodeMapper implements IEpisodeMapper {
       const durationInSeconds = parseInt(
         ensureField(item["itunes:duration"]?.[0], "itunes:duration")
       );
-      const podcast_season_number = item["itunes:season"]
+      const seasonNumber = item["itunes:season"]
         ? parseInt(item["itunes:season"][0])
         : undefined;
       const external_guid = ensureField(item.guid?.[0]._, "guid");
@@ -28,7 +28,7 @@ export class RssToEpisodeMapper implements IEpisodeMapper {
         description,
         publishedAt,
         durationInSeconds,
-        podcast_season_number,
+        seasonNumber,
         external_guid,
         URL,
       };

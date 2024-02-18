@@ -19,8 +19,7 @@ export class EpisodeService implements IEpisodeService {
         ...existingEpisode,
         durationInSeconds: existingEpisode.durationInSeconds ?? undefined,
         publishedAt: existingEpisode.publishedAt ?? undefined,
-        podcast_season_number:
-          existingEpisode.podcast_season_number ?? undefined,
+        seasonNumber: existingEpisode.seasonNumber ?? undefined,
         URL: existingEpisode.URL ?? undefined,
       };
     } else {
@@ -32,7 +31,7 @@ export class EpisodeService implements IEpisodeService {
         ...newEpisode,
         durationInSeconds: newEpisode.durationInSeconds ?? undefined,
         publishedAt: newEpisode.publishedAt ?? undefined,
-        podcast_season_number: newEpisode.podcast_season_number ?? undefined,
+        seasonNumber: newEpisode.seasonNumber ?? undefined,
         URL: newEpisode.URL ?? undefined,
       };
     }
