@@ -1,16 +1,18 @@
 import axios from 'axios';
+import { parseStringPromise } from 'xml2js';
 
 import { IRssClient } from '../interfaces/IRssClient';
 
 export class AxiosRssClient implements IRssClient {
   async fetchFeed(url: string): Promise<any> {
-    // Consider using a specific type for the return value
+    // Adjust the return type based on your parsing
     try {
-      const response = await axios.get(url);
-      return response.data; // You might want to parse this data depending on the RSS feed structure
+      const response = await axios.get(url, { responseType: "text" });
+      const result = await parseStringPromise(response.data);
+      return result; // This is now a JavaScript object
     } catch (error) {
-      console.error(`Failed to fetch RSS feed from ${url}:`, error);
-      throw error; // Rethrow or handle as needed
+      console.error(`Failed to fetch or parse RSS feed from ${url}:`, error);
+      throw error;
     }
   }
 }
