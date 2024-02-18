@@ -15,6 +15,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "start": "node dist/app.js"
+    "start": "node dist/app.js",
+    "test": "jest"
   }
 }
