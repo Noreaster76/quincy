@@ -1,9 +1,10 @@
 import { AxiosRssClient } from './implementations/AxiosRssClient';
 
-async function main() {
+async function fetchAndProcessRssFeed() {
   const rssClient = new AxiosRssClient();
-  const feedData = await rssClient.fetchFeed("https://example.com/rss");
-  console.log(feedData);
+  const newEpisodesData = await rssClient.fetchFeed("https://example.com/rss");
+  console.log(newEpisodesData); // Now an array of NewEpisodeData objects
+  // Here, loop through newEpisodesData and add each to database
 }
 
-main().catch(console.error);
+fetchAndProcessRssFeed().catch(console.error);

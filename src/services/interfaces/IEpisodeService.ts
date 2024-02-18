@@ -7,7 +7,7 @@ export type NewEpisodeData = {
   title: string;
   description: string;
   publishedAt: Date;
-  durationInSeconds: number; // Renamed from duration
+  durationInSeconds: number;
 };
 
 export type Episode = {
@@ -15,5 +15,5 @@ export type Episode = {
   title: string;
   description: string;
   publishedAt: Date;
-  durationInSeconds: number; // Renamed from duration
+  durationInSeconds: number;
 };

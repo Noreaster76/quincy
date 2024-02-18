@@ -13,6 +13,4 @@ export class EpisodeService implements IEpisodeService {
       },
     });
   }
-
-  // Remember to update any other method that refers to duration to durationInSeconds
 }
