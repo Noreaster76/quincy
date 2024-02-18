@@ -17,6 +17,7 @@ export class EpisodeService implements IEpisodeService {
       // If it exists, return the existing episode
       return {
         ...existingEpisode,
+        publishedAt: existingEpisode.publishedAt ?? undefined,
         podcast_season_number:
           existingEpisode.podcast_season_number ?? undefined,
       };
@@ -27,6 +28,7 @@ export class EpisodeService implements IEpisodeService {
       });
       return {
         ...newEpisode,
+        publishedAt: episodeData.publishedAt ?? undefined,
         podcast_season_number: newEpisode.podcast_season_number ?? undefined,
       };
     }

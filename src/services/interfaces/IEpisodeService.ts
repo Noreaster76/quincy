@@ -6,7 +6,7 @@ export interface IEpisodeService {
 export type NewEpisodeData = {
   title: string;
   description: string;
-  publishedAt: Date;
+  publishedAt?: Date;
   durationInSeconds: number;
   podcast_season_number?: number;
   external_guid: string;
@@ -17,7 +17,7 @@ export type Episode = {
   id: number;
   title: string;
   description: string;
-  publishedAt: Date;
+  publishedAt?: Date;
   durationInSeconds: number;
   podcast_season_number?: number;
   external_guid: string;

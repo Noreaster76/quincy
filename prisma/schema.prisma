@@ -11,12 +11,12 @@ datasource db {
 }
 
 model Episode {
-  id                    Int      @id @default(autoincrement())
+  id                    Int       @id @default(autoincrement())
   title                 String
   description           String
-  publishedAt           DateTime
+  publishedAt           DateTime?
   durationInSeconds     Int
   podcast_season_number Int?
-  external_guid         String   @unique
+  external_guid         String    @unique
   URL                   String
 }
