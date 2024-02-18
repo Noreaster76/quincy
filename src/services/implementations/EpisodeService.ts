@@ -15,13 +15,20 @@ export class EpisodeService implements IEpisodeService {
 
     if (existingEpisode) {
       // If it exists, return the existing episode
-      return existingEpisode;
+      return {
+        ...existingEpisode,
+        podcast_season_number:
+          existingEpisode.podcast_season_number ?? undefined,
+      };
     } else {
       // If it doesn't exist, create a new episode
       const newEpisode = await this.prisma.episode.create({
         data: episodeData,
       });
-      return newEpisode;
+      return {
+        ...newEpisode,
+        podcast_season_number: newEpisode.podcast_season_number ?? undefined,
+      };
     }
   }
 }
