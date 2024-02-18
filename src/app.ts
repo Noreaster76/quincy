@@ -1,6 +1,6 @@
-import { AxiosRssClient } from './implementations/AxiosRssClient';
-import { EpisodeService } from './implementations/EpisodeService';
-import { RssToEpisodeMapper } from './implementations/RssToEpisodeMapper';
+import { AxiosRssClient } from './services/implementations/AxiosRssClient';
+import { EpisodeService } from './services/implementations/EpisodeService';
+import { RssToEpisodeMapper } from './services/implementations/RssToEpisodeMapper';
 
 const rssClient = new AxiosRssClient();
 const mapper = new RssToEpisodeMapper();
