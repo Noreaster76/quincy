@@ -11,9 +11,9 @@ datasource db {
 }
 
 model Episode {
-  id          Int      @id @default(autoincrement())
-  title       String
-  description String
-  publishedAt DateTime
-  duration    Int // Duration in seconds
+  id                Int      @id @default(autoincrement())
+  title             String
+  description       String
+  publishedAt       DateTime
+  durationInSeconds Int // Renamed from duration
 }

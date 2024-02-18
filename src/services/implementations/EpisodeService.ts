@@ -1,18 +1,18 @@
 import { PrismaClient } from '@prisma/client';
 
-class EpisodeService implements IEpisodeService {
-  private prisma: PrismaClient;
+import { Episode, IEpisodeService, NewEpisodeData } from '../interfaces/IEpisodeService';
 
-  constructor() {
-    this.prisma = new PrismaClient();
-  }
+export class EpisodeService implements IEpisodeService {
+  private prisma: PrismaClient = new PrismaClient();
 
   async addEpisode(episodeData: NewEpisodeData): Promise<Episode> {
-    const episode = await this.prisma.episode.create({
-      data: episodeData,
+    return this.prisma.episode.create({
+      data: {
+        ...episodeData,
+        // No need to explicitly map durationInSeconds here if it's named the same in NewEpisodeData and the database
+      },
     });
-    return episode;
   }
 
-  // Implement other methods defined in the interface
+  // Remember to update any other method that refers to duration to durationInSeconds
 }
