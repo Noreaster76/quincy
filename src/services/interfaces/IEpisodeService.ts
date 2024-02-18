@@ -9,7 +9,6 @@ export type NewEpisodeData = {
   publishedAt: Date;
   durationInSeconds: number;
   podcast_season_number: number;
-  podcast_episode_number: number;
   external_guid: string;
   URL: string;
 };
@@ -21,7 +20,6 @@ export type Episode = {
   publishedAt: Date;
   durationInSeconds: number;
   podcast_season_number: number;
-  podcast_episode_number: number;
   external_guid: string;
   URL: string;
 };
