@@ -18,5 +18,5 @@ model Episode {
   durationInSeconds     Int
   podcast_season_number Int?
   external_guid         String    @unique
-  URL                   String
+  URL                   String?
 }

@@ -20,6 +20,7 @@ export class EpisodeService implements IEpisodeService {
         publishedAt: existingEpisode.publishedAt ?? undefined,
         podcast_season_number:
           existingEpisode.podcast_season_number ?? undefined,
+        URL: existingEpisode.URL ?? undefined,
       };
     } else {
       // If it doesn't exist, create a new episode
@@ -30,6 +31,7 @@ export class EpisodeService implements IEpisodeService {
         ...newEpisode,
         publishedAt: episodeData.publishedAt ?? undefined,
         podcast_season_number: newEpisode.podcast_season_number ?? undefined,
+        URL: newEpisode.URL ?? undefined,
       };
     }
   }
