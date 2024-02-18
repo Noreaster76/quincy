@@ -30,8 +30,8 @@ export class EpisodeService implements IEpisodeService {
       });
       return {
         ...newEpisode,
-        durationInSeconds: episodeData.durationInSeconds ?? undefined,
-        publishedAt: episodeData.publishedAt ?? undefined,
+        durationInSeconds: newEpisode.durationInSeconds ?? undefined,
+        publishedAt: newEpisode.publishedAt ?? undefined,
         podcast_season_number: newEpisode.podcast_season_number ?? undefined,
         URL: newEpisode.URL ?? undefined,
       };
