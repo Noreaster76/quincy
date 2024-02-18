@@ -15,7 +15,7 @@ export class RssToEpisodeMapper implements IEpisodeMapper {
         ? parseInt(item["itunes:season"][0])
         : undefined,
       external_guid: item.guid[0]._,
-      URL: item.link[0] ? item.link[0] : undefined,
+      URL: item.link ? item.link[0] : undefined,
     };
   }
 }
