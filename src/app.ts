@@ -1,9 +1,10 @@
 import { AxiosRssClient } from './services/implementations/AxiosRssClient';
 import { EpisodeService } from './services/implementations/EpisodeService';
 import { RssToEpisodeMapper } from './services/implementations/RssToEpisodeMapper';
+import { NewEpisodeData } from './services/interfaces/IEpisodeService';
 
 const rssClient = new AxiosRssClient();
-const mapper = new RssToEpisodeMapper();
+const episodeMapper = new RssToEpisodeMapper();
 const episodeService = new EpisodeService();
 
 const rssFeedUrls = [
@@ -15,16 +16,16 @@ const rssFeedUrls = [
 
 async function fetchAndAddEpisodes() {
   for (const url of rssFeedUrls) {
-    try {
-      const feedData = await rssClient.fetchFeed(url);
-      const episodesData = feedData.map(mapper.map);
-
-      for (const episodeData of episodesData) {
+    const items = await rssClient.fetchFeed(url); // Assuming this returns an array of items
+    for (const item of items) {
+      try {
+        // Attempt to map the item to NewEpisodeData
+        const episodeData: NewEpisodeData = episodeMapper.map(item);
         await episodeService.addEpisode(episodeData);
-        console.log(`Added episode: ${episodeData.title}`);
+      } catch (error) {
+        console.error(`Failed to process item from ${url}: ${error}`);
+        // Continue processing the next item
       }
-    } catch (error) {
-      console.error(`Error processing feed ${url}:`, error);
     }
   }
 }
