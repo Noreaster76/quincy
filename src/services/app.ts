@@ -6,22 +6,26 @@ const rssClient = new AxiosRssClient();
 const mapper = new RssToEpisodeMapper();
 const episodeService = new EpisodeService();
 
-// Example RSS Feed URL
-const rssFeedUrl = "https://example.com/feed.rss";
+const rssFeedUrls = [
+  "https://rss.art19.com/masters-of-scale",
+  "https://anchor.fm/s/174cb1b8/podcast/rss",
+  "https://feeds.transistor.fm/acquired",
+  "https://thetwentyminutevc.libsyn.com/rss",
+];
 
 async function fetchAndAddEpisodes() {
-  try {
-    const feedItems = await rssClient.fetchFeed(rssFeedUrl);
-    const episodesData = feedItems.map(mapper.map); // Assuming feedItems is an array of items
+  for (const url of rssFeedUrls) {
+    try {
+      const feedData = await rssClient.fetchFeed(url);
+      const episodesData = feedData.map(mapper.map);
 
-    // Add each episode to the database
-    for (const episodeData of episodesData) {
-      const episode = await episodeService.addEpisode(episodeData);
-      console.log("Added/Found episode:", episode.title);
+      for (const episodeData of episodesData) {
+        await episodeService.addEpisode(episodeData);
+        console.log(`Added episode: ${episodeData.title}`);
+      }
+    } catch (error) {
+      console.error(`Error processing feed ${url}:`, error);
     }
-  } catch (error) {
-    console.error("Failed to fetch or process RSS feed:", error);
-    return [];
   }
 }
 
