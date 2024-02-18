@@ -9,7 +9,7 @@ export type NewEpisodeData = {
   publishedAt?: Date;
   durationInSeconds?: number;
   seasonNumber?: number;
-  external_guid: string;
+  externalGuid: string;
   URL?: string;
 };
 
@@ -20,6 +20,6 @@ export type Episode = {
   publishedAt?: Date;
   durationInSeconds?: number;
   seasonNumber?: number;
-  external_guid: string;
+  externalGuid: string;
   URL?: string;
 };

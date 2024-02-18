@@ -6,10 +6,10 @@ export class EpisodeService implements IEpisodeService {
   private prisma: PrismaClient = new PrismaClient();
 
   async addEpisode(episodeData: NewEpisodeData): Promise<Episode> {
-    // Check if an episode with the given external_guid already exists
+    // Check if an episode with the given externalGuid already exists
     const existingEpisode = await this.prisma.episode.findUnique({
       where: {
-        external_guid: episodeData.external_guid,
+        externalGuid: episodeData.externalGuid,
       },
     });
 

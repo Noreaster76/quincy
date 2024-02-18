@@ -17,6 +17,6 @@ model Episode {
   publishedAt       DateTime?
   durationInSeconds Int?
   seasonNumber      Int?
-  external_guid     String    @unique
+  externalGuid      String    @unique
   URL               String?
 }

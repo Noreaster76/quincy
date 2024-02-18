@@ -22,7 +22,7 @@ describe("RssToEpisodeMapper", () => {
       publishedAt: new Date("Wed, 17 May 2023 17:32:18 -0700"),
       durationInSeconds: 5862,
       seasonNumber: 12,
-      external_guid: "76a5df5d-600f-493b-9b8e-791cb6ee53b3",
+      externalGuid: "76a5df5d-600f-493b-9b8e-791cb6ee53b3",
       URL: "https://www.acquired.fm/episodes/spotify-ceo-daniel-ek",
     };
 
