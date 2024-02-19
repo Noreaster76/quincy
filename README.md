@@ -36,7 +36,13 @@ This project uses SQLite, managed through Prisma. To set up and migrate the data
    npx prisma generate
    ```
 
-2. **Run Migrations**
+2. **Create a local `.env` file**
+
+   ```bash
+   echo 'DATABASE_URL="file:./dev.db"' > .env
+   ```
+
+3. **Run Migrations**
 
    Ensure the SQLite database is set up with the correct schema:
 
@@ -56,6 +62,24 @@ npm run start
 ```
 
 This compiles the TypeScript code and runs the compiled JavaScript from the `dist` directory.
+
+### Exploring the Downloaded Episodes
+
+Since the episodes are downloaded and persisted to a local SQLite database, you can explore it from your terminal as follows:
+
+```bash
+➜  quincy git:(main) ✗ sqlite3 prisma/dev.db
+SQLite version 3.43.2 2023-10-10 13:08:14
+Enter ".help" for usage hints.
+sqlite> select count(id) from Episode;
+2060
+sqlite> .exit
+➜  quincy git:(main) ✗
+```
+
+## Note
+
+There was a requirement that sort of sounded like this service should be invoked from a network call. If that is the case, I respectfully push back on that requirement, and instead argue that `npm run build` could simply be invoked from a `cron` job running locally. There's no real reason why this service should have to be invoked over a network; it makes more sense for it to simply be kicked off on a regular schedule.
 
 ## Known Issues
 
