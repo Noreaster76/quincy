@@ -77,9 +77,10 @@ sqlite> .exit
 ➜  quincy git:(main) ✗
 ```
 
-## Note
+## Notes
 
-There was a requirement that sort of sounded like this service should be invoked from a network call. If that is the case, I respectfully push back on that requirement, and instead argue that `npm run build` could simply be invoked from a `cron` job running locally. There's no real reason why this service should have to be invoked over a network; it makes more sense for it to simply be kicked off on a regular schedule.
+- There was a requirement that sort of sounded like this service should be invoked from a network call. If that is the case, I respectfully push back on that requirement, and instead argue that `npm run build` could simply be invoked from a `cron` job running locally. There's no real reason why this service should have to be invoked over a network; it makes more sense for it to simply be kicked off on a regular schedule.
+- It looks like a lot of the podcast attributes are actually optional, per [this Apple documentation](https://help.apple.com/itc/podcasts_connect/#/itcb54353390).
 
 ## Known Issues
 
