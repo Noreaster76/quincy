@@ -1,3 +1,4 @@
+import { parseDuration } from '../../utils/TimeConverter';
 import { IEpisodeMapper } from '../interfaces/IEpisodeMapper';
 import { NewEpisodeData } from '../interfaces/IEpisodeService';
 
@@ -14,9 +15,9 @@ export class RssToEpisodeMapper implements IEpisodeMapper {
       const title = ensureField(item.title?.[0], "title");
       const description = ensureField(item.description?.[0], "description");
       const publishedAt = item.pubDate ? new Date(item.pubDate[0]) : undefined;
-      const durationInSeconds = parseInt(
-        ensureField(item["itunes:duration"]?.[0], "itunes:duration")
-      );
+      const durationInSeconds = item["itunes:duration"]
+        ? parseDuration(item["itunes:duration"])
+        : undefined;
       const seasonNumber = item["itunes:season"]
         ? parseInt(item["itunes:season"][0])
         : undefined;
